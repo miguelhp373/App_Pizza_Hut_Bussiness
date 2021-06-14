@@ -1,0 +1,14 @@
+Android/
+Win32/
+__history/
+__recovery/
+*.identcache
+*.xml
+*.deployproj
+*.res
+*.local
+*.dcu
+*.o
+*.dcu
+*.res
+
