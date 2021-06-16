@@ -42,6 +42,7 @@ type
     Layout11: TLayout;
     Button6: TButton;
     Layout12: TLayout;
+    Layout2: TLayout;
     procedure Edit2Typing(Sender: TObject);
     procedure Sum01Click(Sender: TObject);
     procedure Min01Click(Sender: TObject);
@@ -88,6 +89,7 @@ end;
 
 procedure TFrMenu.FormCreate(Sender: TObject);
 begin
+  BorderIcons := [];
   personsCount := 0;
   childsCount  := 0;
 end;

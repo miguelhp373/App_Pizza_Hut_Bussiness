@@ -1,0 +1,12 @@
+﻿[Q_ConsultaCardapio]
+Coordinates=132,10,116,105
+
+[Connection]
+Coordinates=116,70,70,33
+
+[db_driver]
+Coordinates=47,70,61,33
+
+[Q_CadastroProduto]
+Coordinates=10,10,112,51
+

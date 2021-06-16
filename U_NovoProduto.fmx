@@ -1,0 +1,248 @@
+object FNovoProduto: TFNovoProduto
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 551
+  ClientWidth = 320
+  Fill.Kind = Solid
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 3
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 320.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rectangle1: TRectangle
+      Align = Client
+      Fill.Color = xFFCB0E31
+      Size.Width = 320.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object SpeedButton1: TSpeedButton
+        Align = Left
+        StyledSettings = [Family, Size, Style]
+        IconTintColor = claWhite
+        Position.Y = 8.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'arrowlefttoolbutton'
+        Text = 'SpeedButton1'
+        TextSettings.FontColor = claWhite
+        OnClick = SpeedButton1Click
+      end
+    end
+    object Label1: TLabel
+      Align = Center
+      StyledSettings = [Style]
+      Margins.Left = 15.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Size.Width = 187.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Cadastrar Produto'
+      TabOrder = 1
+    end
+  end
+  object Layout2: TLayout
+    Align = Top
+    Position.Y = 65.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Label2: TLabel
+      Align = FitLeft
+      Margins.Left = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Size.Width = 221.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Nome do Produto'
+      TabOrder = 0
+    end
+  end
+  object Layout3: TLayout
+    Align = Top
+    Position.Y = 115.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    object nprod: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = FitLeft
+      TabOrder = 0
+      Position.X = 20.000000000000000000
+      Position.Y = 9.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object Layout4: TLayout
+    Align = Top
+    Position.Y = 165.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    object Label3: TLabel
+      Align = FitLeft
+      Margins.Left = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Size.Width = 221.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Descri'#231#227'o do Produto'
+      TabOrder = 0
+    end
+  end
+  object Layout5: TLayout
+    Align = Top
+    Position.Y = 365.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    object Label4: TLabel
+      Align = FitLeft
+      Margins.Left = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Size.Width = 221.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Imagem'
+      TabOrder = 0
+    end
+  end
+  object Layout6: TLayout
+    Align = Top
+    Position.Y = 215.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object dprod: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = FitLeft
+      TabOrder = 0
+      Position.X = 20.000000000000000000
+      Position.Y = 9.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object Layout7: TLayout
+    Align = Top
+    Position.Y = 415.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object ComboBox1: TComboBox
+      Align = Center
+      Items.Strings = (
+        '0'
+        '1'
+        '2'
+        '3'
+        '4'
+        '5'
+        '6'
+        '7')
+      ItemIndex = 1
+      Size.Width = 228.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object Layout8: TLayout
+    Align = Top
+    Position.Y = 465.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 15.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+  end
+  object Layout9: TLayout
+    Align = Top
+    Position.Y = 480.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object Rectangle3: TRectangle
+      Align = Center
+      Size.Width = 205.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 25.000000000000000000
+      YRadius = 25.000000000000000000
+      object SpeedButton2: TSpeedButton
+        Align = Center
+        Size.Width = 205.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Enviar'
+        OnClick = SpeedButton2Click
+      end
+    end
+  end
+  object Layout10: TLayout
+    Align = Top
+    Position.Y = 265.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    object Label5: TLabel
+      Align = FitLeft
+      Margins.Left = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Size.Width = 221.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Pre'#231'o'
+      TabOrder = 0
+    end
+  end
+  object Layout11: TLayout
+    Align = Top
+    Position.Y = 315.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object ppreco: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = FitLeft
+      TabOrder = 0
+      Position.X = 20.000000000000000000
+      Position.Y = 9.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      OnChange = pprecoChange
+    end
+  end
+end

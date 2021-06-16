@@ -40,6 +40,7 @@ end;
 
 procedure TFrSplash.FormCreate(Sender: TObject);
 begin
+    BorderIcons := [];
     Timer1.Interval := 4000;
     Timer1.Enabled := true;
     logo_center.Opacity := 0;

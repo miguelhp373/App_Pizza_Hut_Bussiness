@@ -5,6 +5,7 @@ object FrMenu: TFrMenu
   ClientHeight = 551
   ClientWidth = 320
   Fill.Kind = Solid
+  Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -59,16 +60,16 @@ object FrMenu: TFrMenu
     TabHeight = 49.000000000000000000
     TabIndex = 0
     TabOrder = 1
-    TabPosition = Bottom
+    TabPosition = Dots
     Sizes = (
       320s
-      437s
+      486s
       320s
-      437s
+      486s
       320s
-      437s
+      486s
       320s
-      437s)
+      486s)
     object TabItem1: TTabItem
       CustomIcon.Height = 512
       CustomIcon.Width = 512
@@ -438,11 +439,13 @@ object FrMenu: TFrMenu
             'ile_Modulo_02\Aplicativo com SQLite\Assets\icons\cliente.png'
         end>
       IsSelected = True
-      Size.Width = 80.000000000000000000
-      Size.Height = 49.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'tabitemcustom'
       TabOrder = 0
+      ExplicitSize.cx = 80.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
       object Layout3: TLayout
         Align = Top
         Position.Y = 202.000000000000000000
@@ -629,7 +632,7 @@ object FrMenu: TFrMenu
       end
       object Button6: TButton
         Align = Bottom
-        Position.Y = 384.000000000000000000
+        Position.Y = 383.000000000000000000
         Size.Width = 320.000000000000000000
         Size.Height = 53.000000000000000000
         Size.PlatformDefault = False
@@ -643,6 +646,14 @@ object FrMenu: TFrMenu
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 7
+      end
+      object Layout2: TLayout
+        Align = Bottom
+        Position.Y = 436.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 11
       end
     end
     object TabItem2: TTabItem
@@ -952,11 +963,13 @@ object FrMenu: TFrMenu
             'ile_Modulo_02\Aplicativo com SQLite\Assets\icons\menu.png'
         end>
       IsSelected = False
-      Size.Width = 80.000000000000000000
-      Size.Height = 49.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'tabitemcustom'
       TabOrder = 0
+      ExplicitSize.cx = 80.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
     end
     object TabItem3: TTabItem
       CustomIcon.Height = 512
@@ -1254,11 +1267,13 @@ object FrMenu: TFrMenu
             'ile_Modulo_02\Aplicativo com SQLite\Assets\icons\sacola.png'
         end>
       IsSelected = False
-      Size.Width = 80.000000000000000000
-      Size.Height = 49.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'tabitemcustom'
       TabOrder = 0
+      ExplicitSize.cx = 80.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
     end
     object TabItem4: TTabItem
       CustomIcon.Height = 512
@@ -1825,11 +1840,13 @@ object FrMenu: TFrMenu
             'ile_Modulo_02\Aplicativo com SQLite\Assets\icons\pagamento.png'
         end>
       IsSelected = False
-      Size.Width = 80.000000000000000000
-      Size.Height = 49.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'tabitemcustom'
       TabOrder = 0
+      ExplicitSize.cx = 80.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
     end
   end
 end

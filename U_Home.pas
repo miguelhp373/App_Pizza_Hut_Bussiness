@@ -25,6 +25,8 @@ type
     Button4: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +40,7 @@ implementation
 
 {$R *.fmx}
 
-uses U_menu;
+uses U_menu, U_Cardapio;
 
 procedure TFrHome.Button1Click(Sender: TObject);
 begin
@@ -49,6 +51,17 @@ procedure TFrHome.Button2Click(Sender: TObject);
 begin
   Application.CreateForm(TFrMenu,FrMenu);
   FrMenu.Show;
+end;
+
+procedure TFrHome.Button4Click(Sender: TObject);
+begin
+  Application.CreateForm(TFrCardapio,FrCardapio);
+  FrCardapio.Show;
+end;
+
+procedure TFrHome.FormCreate(Sender: TObject);
+begin
+  BorderIcons := [];
 end;
 
 end.
