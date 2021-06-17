@@ -9,16 +9,15 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, System.ImageList,
-  FMX.ImgList, FMX.TabControl;
+  FMX.ImgList, FMX.TabControl, FMX.ListBox, FMX.Edit;
 
 type
   TFrCardapio = class(TForm)
     Layout1: TLayout;
     Rectangle1: TRectangle;
     SpeedButton1: TSpeedButton;
-    Label1: TLabel;
-    SpeedButton2: TSpeedButton;
-    ImageList1: TImageList;
+    titlePage: TLabel;
+    btnrighttop: TSpeedButton;
     TabControl1: TTabControl;
     TabItem1: TTabItem;
     TabItem2: TTabItem;
@@ -28,20 +27,53 @@ type
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
+    Layout2: TLayout;
+    Layout10: TLayout;
+    Label5: TLabel;
+    Layout11: TLayout;
+    ppreco: TEdit;
+    Layout3: TLayout;
+    Label2: TLabel;
+    Layout4: TLayout;
+    nprod: TEdit;
+    Layout5: TLayout;
+    Label3: TLabel;
+    Layout6: TLayout;
+    Label4: TLabel;
+    Layout7: TLayout;
+    dprod: TEdit;
+    Layout8: TLayout;
+    ComboBox1: TComboBox;
+    Layout9: TLayout;
+    Layout12: TLayout;
+    Rectangle3: TRectangle;
+    SpeedButton3: TSpeedButton;
+    codpro: TLabel;
+    LinkPropertyToFieldText: TLinkPropertyToField;
     procedure SpeedButton1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure btnrighttopClick(Sender: TObject);
     procedure ListView1Change(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
     procedure Consulta_Cardapio_ListView;
+    procedure LimpaTudo;
+    procedure ConsultaPreco;
+    procedure GridProdutos;
   end;
 
 var
-  FrCardapio: TFrCardapio;
+  FrCardapio : TFrCardapio;
+
+  cod        : integer;
+  titulo     : string;
+  subtitulo  : string;
+  preco      : string;
+  imageindex : string;
 
 implementation
 
@@ -55,13 +87,29 @@ begin
   FNovoProduto.Show;
 end;
 
+procedure TFrCardapio.ConsultaPreco;
+begin
+    with module.ConsultaPreco do
+      begin
+          close;
+          SQL.Clear;
+          sql.Add('SELECT preco FROM TB_Cardapio WHERE cod = :cod ');
+          ParamByName('cod').AsInteger := cod;
+          Active:= true;
+
+          Open;
+
+          preco := floattostr(FieldByName('preco').AsFloat);
+      end;
+end;
+
 procedure TFrCardapio.Consulta_Cardapio_ListView;
 begin
     with module.Q_ConsultaCardapio do
       begin
           close;
           SQL.Clear;
-          sql.Add('SELECT titulo, descricao, preco, cod_imagem FROM TB_Cardapio');
+          sql.Add('SELECT cod, titulo, descricao, preco, cod_imagem FROM TB_Cardapio');
           Active:= true;
 
           Open;
@@ -72,24 +120,117 @@ procedure TFrCardapio.FormCreate(Sender: TObject);
 begin
   BorderIcons := [];
   Active:= false;
+  TabControl1.ActiveTab := TabItem1;
   Consulta_Cardapio_ListView; // executa ao abrir a tela a consulta
 end;
 
-procedure TFrCardapio.ListView1Change(Sender: TObject);
+procedure TFrCardapio.GridProdutos;
 begin
-  //adicionar as variaveis o valor que vai ser passado na segunda aba
-  TabControl1.Next()
+      titlePage.Text := 'Cardápio';
+      btnrighttop.stylelookup :=  'refreshtoolbutton';
+end;
+
+procedure TFrCardapio.LimpaTudo;
+begin
+   nprod.Text := '';
+   dprod.Text := '';
+   ComboBox1.ItemIndex := 0;
+end;
+
+procedure TFrCardapio.ListView1Change(Sender: TObject);
+var
+  GetIndex : integer;
+begin
+
+  GetIndex := 0;
+  GetIndex := ListView1.ItemIndex;
+
+        titulo       := ListView1.Items[GetIndex].Text ;
+        subtitulo    := ListView1.items[GetIndex].Detail;
+        imageindex   := inttostr(ListView1.Items[GetIndex].ImageIndex);
+
+
+    TabControl1.Next();
+
+    LimpaTudo;
+
+    titlePage.Text := 'Alteração';
+    btnrighttop.stylelookup :=  'trashtoolbutton';
+
+    cod := strtoint(codpro.Text);
+    ConsultaPreco;
+
+    nprod.Text := titulo;
+    dprod.Text := subtitulo;
+
+    ppreco.Text := preco;
+    ComboBox1.ItemIndex := strtoint(imageindex);
 end;
 
 procedure TFrCardapio.SpeedButton1Click(Sender: TObject);
 begin
-  close;
+
+  if TabControl1.ActiveTab <> TabItem1 then  TabControl1.Previous()
+  else                                       close;
+
+  if TabControl1.ActiveTab = TabItem1 then
+    begin
+      Consulta_Cardapio_ListView;//atualiza listview
+      GridProdutos;
+    end;
+  
 end;
 
-procedure TFrCardapio.SpeedButton2Click(Sender: TObject);
+procedure TFrCardapio.SpeedButton3Click(Sender: TObject);
 begin
-  Active:= false;
-  Consulta_Cardapio_ListView;//atualiza listview
+       with module.AtualizaProduto do
+              begin
+                Close;
+                SQL.Clear;
+
+                SQL.Add('UPDATE TB_Cardapio');
+                SQL.Add('SET titulo = :Titulo_Prod,');
+                SQL.Add('descricao = :Descricao_Prod,');
+                SQL.Add('preco = :Preco_prod,');
+                SQL.Add('cod_imagem = :Imagem_cod');
+                Sql.Add('WHERE cod = :cod');
+
+                ParambyName('cod').AsInteger := strtoint(codpro.Text);
+                ParamByName('Titulo_Prod').AsString := nprod.Text ;
+                ParamByName('Descricao_Prod').AsString := dprod.Text;
+                ParamByName('Preco_prod').AsFloat :=  Strtofloat(ppreco.Text);
+                ParamByName('Imagem_cod').AsInteger := strtoint(ComboBox1.Selected.Text);
+
+                ExecSQL;
+              end;
+
+              TabControl1.Previous();
+              GridProdutos;
+              Consulta_Cardapio_ListView;//atualiza listview
+end;
+
+procedure TFrCardapio.btnrighttopClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = TabItem1 then
+    begin
+      Consulta_Cardapio_ListView;//atualiza listview
+    end
+  else  if TabControl1.ActiveTab = TabItem2 then
+    begin
+        with module.DeletaItem do
+          begin
+            Close;
+            SQL.Clear;
+
+            SQL.Add('DELETE FROM TB_Cardapio WHERE cod = :cod');
+            ParamByName('cod').AsInteger := cod;
+
+            ExecSQL;
+        end;
+        TabControl1.Previous();
+        GridProdutos;
+        Consulta_Cardapio_ListView;//atualiza listview
+  end;
 end;
 
 end.

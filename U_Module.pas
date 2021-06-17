@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.FMXUI.Wait,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList, FMX.ImgList;
 
 type
   Tmodule = class(TDataModule)
@@ -16,6 +16,10 @@ type
     db_driver: TFDPhysSQLiteDriverLink;
     Connection: TFDConnection;
     Q_CadastroProduto: TFDQuery;
+    ImageList1: TImageList;
+    ConsultaPreco: TFDQuery;
+    AtualizaProduto: TFDQuery;
+    DeletaItem: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

@@ -1,5 +1,5 @@
 ﻿[Q_ConsultaCardapio]
-Coordinates=132,10,116,105
+Coordinates=132,10,116,141
 
 [Connection]
 Coordinates=116,70,70,33
@@ -9,4 +9,13 @@ Coordinates=47,70,61,33
 
 [Q_CadastroProduto]
 Coordinates=10,10,112,51
+
+[AtualizaProduto]
+Coordinates=286,71,93,51
+
+[ConsultaPreco]
+Coordinates=286,1,87,51
+
+[ImageList1]
+Coordinates=286,141,68,33
 

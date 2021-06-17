@@ -166,7 +166,7 @@ object FNovoProduto: TFNovoProduto
         '5'
         '6'
         '7')
-      ItemIndex = 1
+      ItemIndex = 0
       Size.Width = 228.000000000000000000
       Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
@@ -242,7 +242,6 @@ object FNovoProduto: TFNovoProduto
       Size.Width = 270.000000000000000000
       Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
-      OnChange = pprecoChange
     end
   end
 end

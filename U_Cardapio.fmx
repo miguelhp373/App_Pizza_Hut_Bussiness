@@ -1,7 +1,6 @@
 object FrCardapio: TFrCardapio
   Left = 0
   Top = 0
-  Caption = 'Form1'
   ClientHeight = 551
   ClientWidth = 320
   Fill.Kind = Solid
@@ -37,7 +36,7 @@ object FrCardapio: TFrCardapio
         TextSettings.FontColor = claWhite
         OnClick = SpeedButton1Click
       end
-      object SpeedButton2: TSpeedButton
+      object btnrighttop: TSpeedButton
         Align = Right
         StyledSettings = [Family, Size, Style]
         IconTintColor = claWhite
@@ -49,10 +48,10 @@ object FrCardapio: TFrCardapio
         StyleLookup = 'refreshtoolbutton'
         Text = 'SpeedButton1'
         TextSettings.FontColor = claWhite
-        OnClick = SpeedButton2Click
+        OnClick = btnrighttopClick
       end
     end
-    object Label1: TLabel
+    object titlePage: TLabel
       Align = Center
       StyledSettings = [Style]
       Margins.Left = 15.000000000000000000
@@ -74,9 +73,9 @@ object FrCardapio: TFrCardapio
     Size.Height = 486.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
-    TabPosition = Dots
+    TabPosition = None
     Sizes = (
       320s
       486s
@@ -86,23 +85,24 @@ object FrCardapio: TFrCardapio
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object ListView1: TListView
         ItemAppearanceClassName = 'TImageListItemBottomDetailAppearance'
         ItemEditAppearanceClassName = 'TImageListItemBottomDetailShowCheckAppearance'
         HeaderAppearanceClassName = 'TCustomizeItemObjects'
         FooterAppearanceClassName = 'TCustomizeItemObjects'
-        ItemIndex = 0
-        Images = ImageList1
+        Images = module.ImageList1
         Align = Client
         Size.Width = 320.000000000000000000
-        Size.Height = 486.000000000000000000
+        Size.Height = 436.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         OnChange = ListView1Change
@@ -129,38 +129,235 @@ object FrCardapio: TFrCardapio
             OnClick = Button1Click
           end
         end
+        object codpro: TLabel
+          Position.X = 48.000000000000000000
+          Position.Y = 80.000000000000000000
+          Visible = False
+          TabOrder = 0
+        end
+      end
+      object Layout2: TLayout
+        Align = Bottom
+        Position.Y = 436.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
       end
     end
     object TabItem2: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Layout10: TLayout
+        Align = Top
+        Position.Y = 195.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 38.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        object Label5: TLabel
+          Align = FitLeft
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 163.160003662109400000
+          Size.Height = 38.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Pre'#231'o'
+          TabOrder = 0
+        end
+      end
+      object Layout11: TLayout
+        Align = Top
+        Position.Y = 233.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        object ppreco: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = FitLeft
+          TabOrder = 0
+          Position.X = 20.000000000000000000
+          Position.Y = 9.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Right = 30.000000000000000000
+          Size.Width = 270.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object Layout3: TLayout
+        Align = Top
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Label2: TLabel
+          Align = FitLeft
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 221.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Nome do Produto'
+          TabOrder = 0
+        end
+      end
+      object Layout4: TLayout
+        Align = Top
+        Position.Y = 50.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 10
+        object nprod: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = FitLeft
+          TabOrder = 0
+          Position.X = 20.000000000000000000
+          Position.Y = 9.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Right = 30.000000000000000000
+          Size.Width = 270.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object Layout5: TLayout
+        Align = Top
+        Position.Y = 100.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 45.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 9
+        object Label3: TLabel
+          Align = FitLeft
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 196.900009155273400000
+          Size.Height = 45.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Descri'#231#227'o do Produto'
+          TabOrder = 0
+        end
+      end
+      object Layout6: TLayout
+        Align = Top
+        Position.Y = 283.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 34.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 8
+        object Label4: TLabel
+          Align = FitLeft
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 143.880004882812500000
+          Size.Height = 34.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Imagem'
+          TabOrder = 0
+        end
+      end
+      object Layout7: TLayout
+        Align = Top
+        Position.Y = 145.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object dprod: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = FitLeft
+          TabOrder = 0
+          Position.X = 20.000000000000000000
+          Position.Y = 9.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Right = 30.000000000000000000
+          Size.Width = 270.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object Layout8: TLayout
+        Align = Top
+        Position.Y = 317.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object ComboBox1: TComboBox
+          Align = Center
+          Items.Strings = (
+            '0'
+            '1'
+            '2'
+            '3'
+            '4'
+            '5'
+            '6')
+          Size.Width = 228.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+        end
+      end
+      object Layout9: TLayout
+        Align = Top
+        Position.Y = 421.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 15.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+      end
+      object Layout12: TLayout
+        Align = Top
+        Position.Y = 367.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 54.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object Rectangle3: TRectangle
+          Align = Center
+          Size.Width = 205.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          XRadius = 25.000000000000000000
+          YRadius = 25.000000000000000000
+          object SpeedButton3: TSpeedButton
+            Align = Center
+            Size.Width = 205.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Atualizar'
+            OnClick = SpeedButton3Click
+          end
+        end
+      end
     end
-  end
-  object ImageList1: TImageList
-    Source = <>
-    Destination = <>
-    Left = 200
-    Top = 17
   end
   object BindSourceDB1: TBindSourceDB
     DataSet = module.Q_ConsultaCardapio
     ScopeMappings = <>
-    Left = 104
-    Top = 32
+    Left = 280
+    Top = 416
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 68
-    Top = 21
+    Left = 276
+    Top = 469
     object LinkListControlToField1: TLinkListControlToField
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
@@ -177,6 +374,13 @@ object FrCardapio: TFrCardapio
         end>
       FillHeaderExpressions = <>
       FillBreakGroups = <>
+    end
+    object LinkPropertyToFieldText: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cod'
+      Component = codpro
+      ComponentProperty = 'Text'
     end
   end
 end

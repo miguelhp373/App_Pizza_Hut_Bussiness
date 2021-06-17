@@ -222,7 +222,6 @@
             <Form>FrMenu</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="uFormat.pas"/>
         <DCCReference Include="U_Home.pas">
             <Form>FrHome</Form>
             <FormType>fmx</FormType>

@@ -35,7 +35,6 @@ type
     ppreco: TEdit;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
-    procedure pprecoChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -51,7 +50,7 @@ implementation
 
 {$R *.fmx}
 
-uses U_Module, uFormat;
+uses U_Module, uFormat, U_Cardapio;
 
 procedure TFNovoProduto.CadastraProduto;
 begin
@@ -82,19 +81,14 @@ begin
 BorderIcons := [];
 end;
 
-procedure TFNovoProduto.pprecoChange(Sender: TObject);
-begin
-  //Formatar(money,ppreco);
-end;
-
 procedure TFNovoProduto.SpeedButton1Click(Sender: TObject);
 begin
   close;
+  Frcardapio.Consulta_Cardapio_ListView;
 end;
 
 procedure TFNovoProduto.SpeedButton2Click(Sender: TObject);
 begin
-
     CadastraProduto;
 end;
 
