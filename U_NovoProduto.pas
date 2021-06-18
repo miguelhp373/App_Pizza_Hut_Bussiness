@@ -50,7 +50,7 @@ implementation
 
 {$R *.fmx}
 
-uses U_Module, uFormat, U_Cardapio;
+uses U_Module, U_Cardapio;
 
 procedure TFNovoProduto.CadastraProduto;
 begin

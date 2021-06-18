@@ -22,8 +22,6 @@ type
     TabItem1: TTabItem;
     TabItem2: TTabItem;
     ListView1: TListView;
-    Rectangle2: TRectangle;
-    Button1: TButton;
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
@@ -50,6 +48,8 @@ type
     SpeedButton3: TSpeedButton;
     codpro: TLabel;
     LinkPropertyToFieldText: TLinkPropertyToField;
+    Rectangle2: TRectangle;
+    Button1: TButton;
     procedure SpeedButton1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);

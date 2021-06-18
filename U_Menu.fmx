@@ -36,39 +36,53 @@ object FrMenu: TFrMenu
         TextSettings.FontColor = claWhite
         OnClick = SpeedButton1Click
       end
+      object tot: TLabel
+        Align = Right
+        StyledSettings = [Family, Size, Style]
+        Position.X = 264.000000000000000000
+        Size.Width = 56.000000000000000000
+        Size.Height = 65.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        Text = '0'
+        TabOrder = 0
+      end
     end
-    object Label1: TLabel
+    object lb_title: TLabel
       Align = Center
+      AutoSize = True
       StyledSettings = [Style]
       Margins.Left = 10.000000000000000000
-      Size.Width = 142.000000000000000000
+      Size.Width = 138.000000000000000000
       Size.Height = 23.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Family = 'Arial'
       TextSettings.Font.Size = 20.000000000000000000
       TextSettings.FontColor = claWhite
-      Text = 'Fa'#231'a o Pedido'
+      TextSettings.WordWrap = False
+      Text = 'Cadastro Inicial'
       TabOrder = 1
     end
   end
   object tabmenu: TTabControl
     Align = Client
     Size.Width = 320.000000000000000000
-    Size.Height = 486.000000000000000000
+    Size.Height = 401.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 1
     TabPosition = Dots
     Sizes = (
       320s
-      486s
+      401s
       320s
-      486s
+      401s
       320s
-      486s
+      401s
       320s
-      486s)
+      401s)
     object TabItem1: TTabItem
       CustomIcon.Height = 512
       CustomIcon.Width = 512
@@ -437,7 +451,7 @@ object FrMenu: TFrMenu
             'C:\Users\migue\OneDrive\Documentos\Projetos Etec\Programacao_Mob' +
             'ile_Modulo_02\Aplicativo com SQLite\Assets\icons\cliente.png'
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -445,55 +459,42 @@ object FrMenu: TFrMenu
       TabOrder = 0
       ExplicitSize.cx = 80.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
-      object Layout3: TLayout
-        Align = Top
-        Position.Y = 202.000000000000000000
-        Size.Width = 320.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        object Sum01: TButton
-          Align = FitRight
-          Position.X = 270.000000000000000000
-          Size.Width = 48.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'additembutton'
-          TabOrder = 4
-          Text = 'Sum01'
-          OnClick = Sum01Click
-        end
-        object personCount: TLabel
-          Align = Center
-          TextSettings.HorzAlign = Center
-          Text = '0'
-          TabOrder = 0
-        end
-        object Min01: TButton
-          Align = FitLeft
-          Size.Width = 48.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'deleteitembutton'
-          TabOrder = 3
-          Text = 'Button2'
-          OnClick = Min01Click
-        end
-      end
       object Layout4: TLayout
         Align = Top
         Position.Y = 164.000000000000000000
         Size.Width = 320.000000000000000000
-        Size.Height = 38.000000000000000000
+        Size.Height = 157.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 3
-        object Label5: TLabel
+        TabOrder = 0
+        object senha_cliente: TLabel
           Align = Center
           StyledSettings = [Family, Style, FontColor]
-          TextSettings.Font.Size = 18.000000000000000000
+          Size.Width = 154.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 28.000000000000000000
           TextSettings.HorzAlign = Center
-          Text = 'Pessoas'
+          Text = '000000'
           TabOrder = 5
+        end
+        object Label4: TLabel
+          Align = Top
+          Size.Width = 320.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'Gerar Senha'
+          TabOrder = 6
+        end
+        object generated: TButton
+          Align = Bottom
+          Position.Y = 113.000000000000000000
+          Size.Width = 320.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 7
+          Text = 'Gerar'
+          OnClick = generatedClick
         end
       end
       object Layout5: TLayout
@@ -502,8 +503,8 @@ object FrMenu: TFrMenu
         Size.Width = 320.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 5
-        object Edit1: TEdit
+        TabOrder = 2
+        object nome: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Center
           TabOrder = 0
@@ -530,8 +531,8 @@ object FrMenu: TFrMenu
         Size.Width = 320.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 4
-        object Edit2: TEdit
+        TabOrder = 1
+        object cpf: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Center
           TabOrder = 1
@@ -539,7 +540,6 @@ object FrMenu: TFrMenu
           Size.Width = 245.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
-          OnTyping = Edit2Typing
         end
         object Label6: TLabel
           Align = FitLeft
@@ -554,72 +554,13 @@ object FrMenu: TFrMenu
           TabOrder = 2
         end
       end
-      object Layout7: TLayout
-        Align = Top
-        Position.Y = 276.000000000000000000
-        Size.Width = 320.000000000000000000
-        Size.Height = 38.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        object Label3: TLabel
-          Align = Center
-          StyledSettings = [Family, Style, FontColor]
-          TextSettings.Font.Size = 18.000000000000000000
-          TextSettings.HorzAlign = Center
-          Text = 'Crian'#231'as'
-          TabOrder = 5
-        end
-      end
-      object Layout8: TLayout
-        Align = Top
-        Position.Y = 314.000000000000000000
-        Size.Width = 320.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        object Sum02: TButton
-          Align = FitRight
-          Position.X = 270.000000000000000000
-          Size.Width = 48.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'additembutton'
-          TabOrder = 4
-          Text = 'Button2'
-          OnClick = Sum02Click
-        end
-        object childCount: TLabel
-          Align = Center
-          TextSettings.HorzAlign = Center
-          Text = '0'
-          TabOrder = 0
-        end
-        object Min02: TButton
-          Align = FitLeft
-          Size.Width = 48.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'deleteitembutton'
-          TabOrder = 3
-          Text = 'Button2'
-          OnClick = Min02Click
-        end
-      end
-      object Layout9: TLayout
-        Align = Top
-        Position.Y = 252.000000000000000000
-        Size.Width = 320.000000000000000000
-        Size.Height = 24.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 9
-      end
       object Layout10: TLayout
         Align = Top
         Position.Y = 140.000000000000000000
         Size.Width = 320.000000000000000000
         Size.Height = 24.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 8
+        TabOrder = 5
       end
       object Layout11: TLayout
         Align = Top
@@ -627,32 +568,14 @@ object FrMenu: TFrMenu
         Size.Width = 320.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 6
-      end
-      object Button6: TButton
-        Align = Bottom
-        Position.Y = 383.000000000000000000
-        Size.Width = 320.000000000000000000
-        Size.Height = 53.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 10
-        Text = 'Proximo'
-        OnClick = Button6Click
+        TabOrder = 3
       end
       object Layout12: TLayout
         Align = Top
         Size.Width = 320.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 7
-      end
-      object Layout2: TLayout
-        Align = Bottom
-        Position.Y = 436.000000000000000000
-        Size.Width = 320.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 11
+        TabOrder = 4
       end
     end
     object TabItem2: TTabItem
@@ -969,6 +892,28 @@ object FrMenu: TFrMenu
       TabOrder = 0
       ExplicitSize.cx = 80.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
+      object ListView1: TListView
+        ItemAppearanceClassName = 'TImageListItemBottomDetailRightButtonAppearance'
+        ItemEditAppearanceClassName = 'TImageListItemBottomDetailRightButtonShowCheckAppearance'
+        HeaderAppearanceClassName = 'TCustomizeItemObjects'
+        FooterAppearanceClassName = 'TCustomizeItemObjects'
+        Images = module.ImageList1
+        Align = Client
+        Size.Width = 320.000000000000000000
+        Size.Height = 401.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        ItemAppearanceObjects.ItemObjects.TextButton.Font.Size = 18.000000000000000000
+        ItemAppearanceObjects.ItemObjects.TextButton.Text = '+'
+        ItemAppearanceObjects.ItemEditObjects.TextButton.TextColor = claBlack
+        OnChange = ListView1Change
+        object codProd: TLabel
+          Position.X = 104.000000000000000000
+          Position.Y = 200.000000000000000000
+          Visible = False
+          TabOrder = 0
+        end
+      end
     end
     object TabItem3: TTabItem
       CustomIcon.Height = 512
@@ -1265,7 +1210,7 @@ object FrMenu: TFrMenu
             'C:\Users\migue\OneDrive\Documentos\Projetos Etec\Programacao_Mob' +
             'ile_Modulo_02\Aplicativo com SQLite\Assets\icons\sacola.png'
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -1273,6 +1218,18 @@ object FrMenu: TFrMenu
       TabOrder = 0
       ExplicitSize.cx = 80.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
+      object ListView2: TListView
+        ItemAppearanceClassName = 'TListItemAppearance'
+        ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Images = module.ImageList1
+        Align = Client
+        Size.Width = 320.000000000000000000
+        Size.Height = 401.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+      end
     end
     object TabItem4: TTabItem
       CustomIcon.Height = 512
@@ -1847,5 +1804,88 @@ object FrMenu: TFrMenu
       ExplicitSize.cx = 80.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
     end
+  end
+  object Layout2: TLayout
+    Align = Bottom
+    Position.Y = 466.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 85.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object Rectangle2: TRectangle
+      Align = Bottom
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 15.000000000000000000
+      Size.Width = 300.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 25.000000000000000000
+      YRadius = 25.000000000000000000
+      object SpeedButton2: TSpeedButton
+        Align = Client
+        Margins.Left = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Size.Width = 290.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Pr'#243'ximo'
+        OnClick = SpeedButton2Click
+      end
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = module.Q_ConsultaCardapio
+    ScopeMappings = <>
+    Left = 280
+    Top = 152
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 284
+    Top = 213
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'titulo'
+      Control = ListView1
+      FillExpressions = <
+        item
+          SourceMemberName = 'descricao'
+          ControlMemberName = 'Detail'
+        end
+        item
+          SourceMemberName = 'cod_imagem'
+          ControlMemberName = 'ImageIndex'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkPropertyToFieldText: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cod'
+      Component = codProd
+      ComponentProperty = 'Text'
+    end
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'titulo'
+      Control = ListView2
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object BindSourceDB2: TBindSourceDB
+    DataSet = module.CarrinhoOperacoes
+    ScopeMappings = <>
+    Left = 144
+    Top = 264
   end
 end

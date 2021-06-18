@@ -9,24 +9,27 @@ uses
 
 type
   TFrHome = class(TForm)
-    Layout1: TLayout;
     Layout2: TLayout;
-    Rectangle1: TRectangle;
-    Image1: TImage;
-    Button1: TButton;
     Layout3: TLayout;
     Rectangle2: TRectangle;
     Button2: TButton;
-    Layout4: TLayout;
+    layout10: TLayout;
     Rectangle3: TRectangle;
     Button3: TButton;
     Layout5: TLayout;
     Rectangle4: TRectangle;
     Button4: TButton;
+    Layout6: TLayout;
+    Image1: TImage;
+    Layout1: TLayout;
+    Layout7: TLayout;
+    Rectangle5: TRectangle;
+    Button5: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +54,11 @@ procedure TFrHome.Button2Click(Sender: TObject);
 begin
   Application.CreateForm(TFrMenu,FrMenu);
   FrMenu.Show;
+end;
+
+procedure TFrHome.Button3Click(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TFrHome.Button4Click(Sender: TObject);

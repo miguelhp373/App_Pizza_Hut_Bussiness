@@ -15,7 +15,7 @@ Visible=False
 Coordinates=550,40,151,51
 
 []
-Coordinates=88,170,68,33
+Coordinates=192,105,69,33
 Visible=True
 
 [ListView1]
@@ -28,14 +28,8 @@ Coordinates=72,53,59,33
 [TabControl1]
 Coordinates=173,1,74,33
 
-[Button1]
-Coordinates=0,0,53,51
-
 [TabItem1]
 Coordinates=192,53,59,33
-
-[Rectangle2]
-Coordinates=192,105,69,33
 
 [BindSourceDB1]
 Coordinates=390,280,139,159

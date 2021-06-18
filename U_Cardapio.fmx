@@ -73,7 +73,7 @@ object FrCardapio: TFrCardapio
     Size.Height = 486.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 2
     TabPosition = None
     Sizes = (
@@ -85,7 +85,7 @@ object FrCardapio: TFrCardapio
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -102,18 +102,31 @@ object FrCardapio: TFrCardapio
         Images = module.ImageList1
         Align = Client
         Size.Width = 320.000000000000000000
-        Size.Height = 436.000000000000000000
+        Size.Height = 384.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         OnChange = ListView1Change
+        object codpro: TLabel
+          Position.X = 48.000000000000000000
+          Position.Y = 80.000000000000000000
+          Visible = False
+          TabOrder = 0
+        end
+      end
+      object Layout2: TLayout
+        Align = Bottom
+        Position.Y = 384.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 102.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
         object Rectangle2: TRectangle
-          Margins.Left = 200.000000000000000000
-          Margins.Top = 300.000000000000000000
-          Margins.Bottom = 50.000000000000000000
-          Position.X = 229.000000000000000000
-          Position.Y = 373.000000000000000000
+          Align = Right
+          Margins.Right = 20.000000000000000000
+          Margins.Bottom = 40.000000000000000000
+          Position.X = 237.000000000000000000
           Size.Width = 63.000000000000000000
-          Size.Height = 63.000000000000000000
+          Size.Height = 62.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 25.000000000000000000
@@ -129,27 +142,13 @@ object FrCardapio: TFrCardapio
             OnClick = Button1Click
           end
         end
-        object codpro: TLabel
-          Position.X = 48.000000000000000000
-          Position.Y = 80.000000000000000000
-          Visible = False
-          TabOrder = 0
-        end
-      end
-      object Layout2: TLayout
-        Align = Bottom
-        Position.Y = 436.000000000000000000
-        Size.Width = 320.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
       end
     end
     object TabItem2: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -244,7 +243,7 @@ object FrCardapio: TFrCardapio
           Align = FitLeft
           Margins.Left = 20.000000000000000000
           Position.X = 20.000000000000000000
-          Size.Width = 196.900009155273400000
+          Size.Width = 196.900024414062500000
           Size.Height = 45.000000000000000000
           Size.PlatformDefault = False
           Text = 'Descri'#231#227'o do Produto'
@@ -351,13 +350,13 @@ object FrCardapio: TFrCardapio
     DataSet = module.Q_ConsultaCardapio
     ScopeMappings = <>
     Left = 280
-    Top = 416
+    Top = 152
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
     Left = 276
-    Top = 469
+    Top = 229
     object LinkListControlToField1: TLinkListControlToField
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1

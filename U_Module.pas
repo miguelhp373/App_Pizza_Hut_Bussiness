@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.FMXUI.Wait,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList, FMX.ImgList;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList, FMX.ImgList,
+  System.IOUtils;
 
 type
   Tmodule = class(TDataModule)
@@ -20,7 +21,9 @@ type
     ConsultaPreco: TFDQuery;
     AtualizaProduto: TFDQuery;
     DeletaItem: TFDQuery;
-    procedure DataModuleCreate(Sender: TObject);
+    CarrinhoOperacoes: TFDQuery;
+    cadastra_pedido: TFDQuery;
+    procedure ConnectionBeforeConnect(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,9 +39,9 @@ implementation
 
 {$R *.dfm}
 
-procedure Tmodule.DataModuleCreate(Sender: TObject);
+procedure Tmodule.ConnectionBeforeConnect(Sender: TObject);
 begin
-  Connection.Connected := true;
+  //Connection.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'DataBase.db');
 end;
 
 end.
