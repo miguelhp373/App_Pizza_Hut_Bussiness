@@ -20,16 +20,20 @@ type
     Rectangle4: TRectangle;
     Button4: TButton;
     Layout6: TLayout;
-    Image1: TImage;
     Layout1: TLayout;
     Layout7: TLayout;
     Rectangle5: TRectangle;
     Button5: TButton;
+    Rectangle1: TRectangle;
+    Image1: TImage;
+    Layout4: TLayout;
+    Label1: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,7 +47,7 @@ implementation
 
 {$R *.fmx}
 
-uses U_menu, U_Cardapio;
+uses U_menu, U_Cardapio, U_Pedidos;
 
 procedure TFrHome.Button1Click(Sender: TObject);
 begin
@@ -65,6 +69,12 @@ procedure TFrHome.Button4Click(Sender: TObject);
 begin
   Application.CreateForm(TFrCardapio,FrCardapio);
   FrCardapio.Show;
+end;
+
+procedure TFrHome.Button5Click(Sender: TObject);
+begin
+  Application.CreateForm(TFrPedidos,FrPedidos);
+  FrPedidos.show;
 end;
 
 procedure TFrHome.FormCreate(Sender: TObject);

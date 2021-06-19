@@ -23,6 +23,7 @@ type
     DeletaItem: TFDQuery;
     CarrinhoOperacoes: TFDQuery;
     cadastra_pedido: TFDQuery;
+    Consulta_Pedidos: TFDQuery;
     procedure ConnectionBeforeConnect(Sender: TObject);
   private
     { Private declarations }
@@ -41,7 +42,7 @@ implementation
 
 procedure Tmodule.ConnectionBeforeConnect(Sender: TObject);
 begin
-  //Connection.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'DataBase.db');
+  Connection.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'DataBase.db');
 end;
 
 end.

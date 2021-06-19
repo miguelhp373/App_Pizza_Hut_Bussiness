@@ -1,0 +1,355 @@
+object FrPedidos: TFrPedidos
+  Left = 0
+  Top = 0
+  ClientHeight = 551
+  ClientWidth = 320
+  Fill.Kind = Solid
+  Position = ScreenCenter
+  Visible = True
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 3
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 320.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rectangle1: TRectangle
+      Align = Client
+      Fill.Color = xFFCB0E31
+      Size.Width = 320.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object SpeedButton1: TSpeedButton
+        Align = Left
+        StyledSettings = [Family, Size, Style]
+        IconTintColor = claWhite
+        Position.Y = 8.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'arrowlefttoolbutton'
+        Text = 'SpeedButton1'
+        TextSettings.FontColor = claWhite
+        OnClick = SpeedButton1Click
+      end
+      object senha: TLabel
+        Align = Right
+        Position.X = 238.000000000000000000
+        Size.Width = 82.000000000000000000
+        Size.Height = 65.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        TextSettings.Trimming = None
+        TabOrder = 0
+      end
+    end
+    object Label1: TLabel
+      Align = Center
+      StyledSettings = [Style]
+      Margins.Left = 15.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Size.Width = 187.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Pedidos'
+      TabOrder = 1
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 320.000000000000000000
+    Size.Height = 486.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 1
+    TabOrder = 1
+    TabPosition = None
+    Sizes = (
+      320s
+      486s
+      320s
+      486s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object ListView1: TListView
+        ItemAppearanceClassName = 'TImageListItemBottomDetailAppearance'
+        ItemEditAppearanceClassName = 'TImageListItemBottomDetailShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Client
+        Size.Width = 320.000000000000000000
+        Size.Height = 436.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnChange = ListView1Change
+        object codigo: TLabel
+          Position.X = 80.000000000000000000
+          Position.Y = 104.000000000000000000
+          Visible = False
+          TabOrder = 0
+        end
+        object nome: TLabel
+          Position.X = 112.000000000000000000
+          Position.Y = 176.000000000000000000
+          Text = 'nome'
+          Visible = False
+          TabOrder = 3
+        end
+        object cpfcliente: TLabel
+          Position.X = 104.000000000000000000
+          Position.Y = 208.000000000000000000
+          Text = 'cpf'
+          Visible = False
+          TabOrder = 2
+        end
+        object valortotal: TLabel
+          Position.X = 112.000000000000000000
+          Position.Y = 272.000000000000000000
+          Text = 'cpf'
+          Visible = False
+          TabOrder = 1
+        end
+      end
+      object Layout2: TLayout
+        Align = Bottom
+        Position.Y = 436.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Button1: TButton
+          Align = Client
+          Size.Width = 320.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Apagar Todos Pedidos'
+          OnClick = Button1Click
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Layout3: TLayout
+        Align = Top
+        Size.Width = 320.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+      end
+      object Layout4: TLayout
+        Align = Top
+        Position.Y = 33.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object Label2: TLabel
+          Align = Left
+          StyledSettings = [Style, FontColor]
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 82.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Tahoma'
+          TextSettings.Font.Size = 20.000000000000000000
+          Text = 'Cliente:'
+          TabOrder = 0
+        end
+      end
+      object Layout5: TLayout
+        Align = Top
+        Position.Y = 83.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 46.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        object cliente: TLabel
+          Align = Center
+          AutoSize = True
+          Size.Height = 65.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          TabOrder = 0
+        end
+      end
+      object Layout6: TLayout
+        Align = Top
+        Position.Y = 129.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Label4: TLabel
+          Align = Left
+          StyledSettings = [Style, FontColor]
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 82.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Tahoma'
+          TextSettings.Font.Size = 20.000000000000000000
+          Text = 'CPF:'
+          TabOrder = 0
+        end
+      end
+      object Layout7: TLayout
+        Align = Top
+        Position.Y = 179.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 51.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object cpf: TLabel
+          Align = Center
+          AutoSize = True
+          Size.Height = 65.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          TabOrder = 0
+        end
+      end
+      object Layout10: TLayout
+        Align = Top
+        Position.Y = 280.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object total: TLabel
+          Align = Center
+          AutoSize = True
+          Size.Height = 65.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          TabOrder = 0
+        end
+      end
+      object Layout11: TLayout
+        Align = Top
+        Position.Y = 230.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Label9: TLabel
+          Align = Left
+          StyledSettings = [Style, FontColor]
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 181.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Tahoma'
+          TextSettings.Font.Size = 20.000000000000000000
+          Text = 'Valor Total:'
+          TabOrder = 0
+        end
+      end
+      object Button2: TButton
+        Align = Bottom
+        Position.Y = 442.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        Text = 'Finalizar'
+        OnClick = Button2Click
+      end
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = module.Consulta_Pedidos
+    ScopeMappings = <>
+    Left = 288
+    Top = 424
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 292
+    Top = 461
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cliente_nome'
+      Control = ListView1
+      FillExpressions = <
+        item
+          SourceMemberName = 'cod_cliente'
+          ControlMemberName = 'Detail'
+        end>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'cod'
+      FillBreakGroups = <>
+    end
+    object LinkPropertyToFieldText: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cod'
+      Component = codigo
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText2: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cod_cliente'
+      Component = senha
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText3: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cliente_nome'
+      Component = nome
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText4: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cpf_cliente'
+      Component = cpfcliente
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText5: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'VALOR_TOTAL'
+      Component = valortotal
+      ComponentProperty = 'Text'
+    end
+  end
+end

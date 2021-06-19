@@ -82,12 +82,12 @@ Coordinates=349,10,63,51
 Coordinates=839,10,126,51
 
 []
-Coordinates=570,430,132,105
+Coordinates=620,590,40,51
 Visible=True
 LayerNames=
 
 [BindSourceDB1]
-Coordinates=260,110,139,159
+Coordinates=290,70,139,159
 
 [BindingsList1]
 Coordinates=168,1,82,33
@@ -108,14 +108,11 @@ Coordinates=145,123,84,51
 Coordinates=321,288,69,33
 
 [module.CarrinhoOperacoes]
-Coordinates=470,440,149,33
+Coordinates=450,450,149,33
 Visible=False
 
 [module.cadastra_pedido]
 Coordinates=454,210,135,51
-
-[tot]
-Coordinates=620,590,40,51
 
 [Module Settings]
 ModelLayerNames=
@@ -123,9 +120,36 @@ ActiveLayerNames=
 EditingLayerName=
 
 [ListView2]
-Coordinates=321,440,89,141
+Coordinates=321,440,89,213
 Visible=True
 
 [BindSourceDB2]
-Coordinates=470,440,132,105
+Coordinates=560,450,132,123
+
+[valtot]
+Coordinates=145,53,41,51
+
+[Layout3]
+Coordinates=321,340,53,33
+
+[SpeedButton3]
+Coordinates=460,502,84,51
+
+[ImageList1]
+Coordinates=460,280,68,33
+
+[Label1]
+Coordinates=145,193,46,51
+
+[Label3]
+Coordinates=288,1,46,51
+
+[SpeedButton4]
+Coordinates=460,80,84,51
+
+[tot]
+Coordinates=96,296,40,51
+
+[Rectangle3]
+Coordinates=460,572,69,33
 

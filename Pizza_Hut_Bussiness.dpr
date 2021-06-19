@@ -8,7 +8,9 @@ uses
   U_Home in 'U_Home.pas' {FrHome},
   U_Cardapio in 'U_Cardapio.pas' {FrCardapio},
   U_Module in 'U_Module.pas' {module: TDataModule},
-  U_NovoProduto in 'U_NovoProduto.pas' {FNovoProduto};
+  U_NovoProduto in 'U_NovoProduto.pas' {FNovoProduto},
+  uFormat in 'uFormat.pas',
+  U_Pedidos in 'U_Pedidos.pas' {FrPedidos};
 
 {$R *.res}
 

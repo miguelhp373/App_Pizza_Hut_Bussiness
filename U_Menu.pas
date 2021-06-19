@@ -8,7 +8,8 @@ uses
   FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.TabControl, FMX.Edit,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
   FMX.ListView, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
-  Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+  Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
+  System.ImageList, FMX.ImgList;
 
 type
   TFrMenu = class(TForm)
@@ -43,17 +44,29 @@ type
     Layout2: TLayout;
     Rectangle2: TRectangle;
     SpeedButton2: TSpeedButton;
-    tot: TLabel;
     ListView2: TListView;
     BindSourceDB2: TBindSourceDB;
     LinkListControlToField2: TLinkListControlToField;
+    Label1: TLabel;
+    Layout3: TLayout;
+    SpeedButton3: TSpeedButton;
+    ImageList1: TImageList;
+    SpeedButton4: TSpeedButton;
+    Rectangle3: TRectangle;
+    Label3: TLabel;
+    valtot: TLabel;
+    tot: TSpeedButton;
+    Button1: TButton;
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure generatedClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure ListView1Change(Sender: TObject);
-    procedure ListView2Change(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure totClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure cpfTyping(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,13 +85,15 @@ var
   cod              : string;
   preco            : string;
   PrecoTotal       : string;
+  v_activeEnd      : string;
+  v_tipoPaga       : string;
 
 
 implementation
 
 {$R *.fmx}
 
-uses U_Module;
+uses U_Module, uFormat;
 
 procedure TFrMenu.generatedClick(Sender: TObject);
 begin
@@ -100,25 +115,6 @@ begin
   cod := codProd.Text;    //codigo do produto
 
   SalvaProdutosNoCarrinho;
-end;
-
-procedure TFrMenu.ListView2Change(Sender: TObject);
-begin
-
-cod := codProd.Text;    //codigo do produto
-
-with module.CarrinhoOperacoes do
-      begin
-        close;
-        SQL.Clear;
-
-        SQL.Add('DELETE FROM TB_Carrinho WHERE cod = :cod');
-        ParamByName('cod').AsInteger := strToInt(cod);
-
-        ExecSQL;
-
-        ConsultaCarrinho;
-    end;
 end;
 
 procedure TFrMenu.SalvaProdutosNoCarrinho;
@@ -157,19 +153,7 @@ begin
     vr_nome_cliente    := nome.Text;
     vr_cpf_cliente     := cpf.Text;
 
-    with module.CarrinhoOperacoes do
-      begin
-        close;
-        SQL.Clear;
 
-        SQL.Add('SELECT cod_item, SUM(preco_item)as preco_total FROM TB_Carrinho');
-
-        Active:= true;
-
-        Open;
-
-        PrecoTotal := FieldByName('preco_total').AsString;
-    end;
 
 
     with module.cadastra_pedido do
@@ -177,7 +161,7 @@ begin
         close;
         SQL.Clear;
 
-        SQL.Add('INSERT INTO TB_Pedidos(cod_cliente, cliente_nome, cpf_cliente, valor_total)VALUES(:cod_cliente, :cliente_nome, :cpf_cliente, :valor_total)');
+        SQL.Add('INSERT INTO TB_Pedidos(cod_cliente, cliente_nome, cpf_cliente, valor_total)VALUES(:cod_cliente, :cliente_nome, :cpf_cliente ,:valor_total)');
 
         ParamByName('cod_cliente').AsInteger := strtoint(vr_senha_cliente);
         ParamByName('cliente_nome').AsString := vr_nome_cliente;
@@ -212,50 +196,135 @@ begin
     if tabmenu.ActiveTab = TabItem2 then
     begin
       lb_title.Text := 'Selecione os Items';
+      SpeedButton2.Text :=  'Proximo';
+      SpeedButton2.Enabled := true;
+      tot.Visible := false;
    end;
 
    if tabmenu.ActiveTab = TabItem3 then
     begin
       lb_title.Text := 'Carrinho';
+      SpeedButton2.Text :=  'Proximo';
+      SpeedButton2.Enabled := true;
+      tot.Visible := false;
    end;
 
    if tabmenu.ActiveTab = TabItem4 then
     begin
       lb_title.Text := 'Pagamento';
+      SpeedButton2.Text :=  'Finalizar';
    end;
 
 end;
 
 procedure TFrMenu.SpeedButton2Click(Sender: TObject);
 begin
-   tabmenu.Next();
-   if tabmenu.ActiveTab = TabItem1 then
-    begin
-         Salva_Cliente_Tela01;
 
-    end;
+   if (cpf.Text = '') or (nome.Text = '') or (senha_cliente.Text = '') then
+    begin
+      ShowMessage('Preencha os Campos Antes de Prosseguir!');
+      abort;
+   end
+   else   tabmenu.Next();
+
    if tabmenu.ActiveTab = TabItem2 then
     begin
       lb_title.Text := 'Selecione os Items';
+      SpeedButton2.Text :=  'Proximo';
+      SpeedButton2.Enabled := true;
       ConsultaCardapio;
    end;
 
    if tabmenu.ActiveTab = TabItem3 then
     begin
       lb_title.Text := 'Carrinho';
-      ConsultaCarrinho
+      ConsultaCarrinho;
+       SpeedButton2.Text :=  'Proximo';
+       SpeedButton2.Enabled := true;
+       tot.Visible := true;
    end;
 
    if tabmenu.ActiveTab = TabItem4 then
     begin
       lb_title.Text := 'Pagamento';
-      Salva_Cliente_Tela01;
+      SpeedButton2.Text := 'Finalizar';
+
+      SpeedButton2.Enabled := false;
+      Button1.Enabled := true;
+
+      tot.stylelookup :=  'cleareditbutton';
+      tot.Text := '';
+      tot.Enabled := true;
+
+
+     with module.CarrinhoOperacoes do
+      begin
+        close;
+        SQL.Clear;
+
+        SQL.Add('SELECT SUM(preco_item)as preco_total,');
+        SQL.Add('(SELECT titulo FROM TB_Cardapio)as titulo, (SELECT cod_imagem FROM TB_Cardapio)as cod_imagem');
+        SQL.Add('FROM TB_Carrinho');
+
+        Active:= true;
+
+        Open;
+
+        PrecoTotal := FieldByName('preco_total').AsString;
+        valtot.Text := 'R$' + PrecoTotal;
+     end;
+
+
+     if v_activeEnd = 'S' then
+      begin
+         Salva_Cliente_Tela01;
+         ShowMessage('Pedido Efetuado com Sucesso!');
+         close;
+     end;
+
+
    end;
+end;
+
+procedure TFrMenu.SpeedButton3Click(Sender: TObject);
+begin
+  SpeedButton4.Enabled := false;
+  SpeedButton2.Enabled := true;
+
+  v_tipoPaga := 'cartão';
+  v_activeEnd := 'S';
 end;
 
 procedure TFrMenu.SpeedButton4Click(Sender: TObject);
 begin
-  tabmenu.Next();
+   SpeedButton3.Enabled := false;
+   SpeedButton2.Enabled := true;
+   v_tipoPaga := 'dinheiro';
+   v_activeEnd := 'S';
+end;
+
+procedure TFrMenu.totClick(Sender: TObject);
+begin
+  SpeedButton3.Enabled := true;
+  SpeedButton4.Enabled := true;
+  SpeedButton2.Enabled := false;
+  v_activeEnd := 'N';
+end;
+
+procedure TFrMenu.Button1Click(Sender: TObject);
+begin
+  with module.CarrinhoOperacoes do
+      begin
+        close;
+        SQL.Clear;
+
+        SQL.Add('DELETE FROM TB_Carrinho');
+
+        ExecSQL;
+    end;
+    ConsultaCardapio;
+    Button1.Enabled := false;
+    tot.Text := '0';
 end;
 
 procedure TFrMenu.ConsultaCardapio;
@@ -278,22 +347,36 @@ begin
         close;
         SQL.Clear;
 
-        SQL.Add('select count(cod_item)as tot_items from TB_Carrinho,TB_Cardapio where TB_Cardapio.cod  =  TB_Carrinho.cod_item');
+        SQL.Add('select DISTINCT titulo, cod_imagem,');
+        SQL.Add('(SELECT COUNT(cod_item)from TB_Carrinho)as tot');
+        SQL.Add('from TB_Cardapio,');
+        SQL.Add('TB_Carrinho');
+        SQL.Add('where');
+        SQL.Add('TB_Cardapio.cod  =  TB_Carrinho.cod_item');
 
         Active:= true;
 
         Open;
 
-        tot.Text := FieldByName('tot_items').AsString;
+        tot.Text := FieldByName('tot').AsString;
     end;
+end;
+
+
+
+procedure TFrMenu.cpfTyping(Sender: TObject);
+begin
+  Formatar(cpf, TFormato.CPF); //formata o cpf
 end;
 
 procedure TFrMenu.FormCreate(Sender: TObject);
 begin
   BorderIcons := [];
   tot.Text := '';
+  tot.Enabled := false;
   generated.Enabled := true;
   senha_cliente.Text := '';
+  v_activeEnd := 'N';
   tabmenu.ActiveTab := TabItem1;
 end;
 
